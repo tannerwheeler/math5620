@@ -5,6 +5,7 @@
   - [Absolute Error](https://tannerwheeler.github.io/math5620/errorAbs)
   - [Relative Error](https://tannerwheeler.github.io/math5620/errorRel)
   - [Logistic Differencial Equations](https://tannerwheeler.github.io/math5620/logistic_diff)
+  - [Second Order, Linear, Constant Coefficient, DEQ](https://tannerwheeler.github.io/math5620/secondccoeff)
   
 ### 2. Elliptic Problems
   -
