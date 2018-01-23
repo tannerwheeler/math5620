@@ -1,97 +1,57 @@
-# Math 4610 Fundamentals of Computational Mathematics Software Manual Template File
-This is a template file for building an entry in the student software manual project. You should use the formatting below to
-define an entry in your software manual.
+# Relative Error
 
-**Routine Name:**           smaceps
+[Math 5620 Software Manual](https://tannerwheeler.github.io/math5620/main)
 
-**Author:** Joe Koebbe
+**Routine Name:**           errorRel(double ex, double exBar)
 
-**Language:** Fortran. The code can be compiled using the GNU Fortran compiler (gfortran).
+**Author:** Tanner Wheeler
 
-For example,
+**Language:** C++. The code can be compiled using the cMake compiler.
 
-    gfortran smaceps.f
+**Description/Purpose:** This function will caluclate the relative error between a calculated value and actual value.
 
-will produce an executable **./a.exe** than can be executed. If you want a different name, the following will work a bit
-better
+**Input:** There are two inputs for this function.  You need to know x and x-bar.  x is your actual value and x-bar is your calculated value.
 
-    gfortran -o smaceps smaceps.f
-
-**Description/Purpose:** This routine will compute the single precision value for the machine epsilon or the number of digits
-in the representation of real numbers in single precision. This is a routine for analyzing the behavior of any computer. This
-usually will need to be run one time for each computer.
-
-**Input:** There are no inputs needed in this case. Even though there are arguments supplied, the real purpose is to
-return values in those variables.
-
-**Output:** This routine returns a single precision value for the number of decimal digits that can be represented on the
-computer being queried.
+**Output:** This function does not print out the relative error, but returns it to the function call.
 
 **Usage/Example:**
+Give the values of x = 1000 and x-bar = 1000.1, we would call the function as:
+```
+errorRel(1000, 1000.1)
+```
+this would then return the value 9.9999e^-5 to the funciton call.
 
-The routine has two arguments needed to return the values of the precision in terms of the smallest number that can be
-represented. Since the code is written in terms of a Fortran subroutine, the values of the machine machine epsilon and
-the power of two that gives the machine epsilon. Due to implicit Fortran typing, the first argument is a single precision
-value and the second is an integer.
+**Implementation/Code:** The following is the code for errorRel(double ex, double exBar)
+```
+double errorRel(double ex, double exBar)
+{
+	double solution = 0.0f;
 
-      call smaceps(sval, ipow)
-      print *, ipow, sval
+	solution = ex - exBar;
 
-Output from the lines above:
+	if (solution < 0)
+	{
+		solution *= -1;
+	}
 
-      24   5.96046448E-08
+	if (exBar < 0)
+	{
+		solution /= (-1 * exBar);
+	}
+	else
+	{
+		solution /= exBar;
+	}
 
-The first value (24) is the number of binary digits that define the machine epsilon and the second is related to the
-decimal version of the same value. The number of decimal digits that can be represented is roughly eight (E-08 on the
-end of the second value).
+	return solution;
+}
 
-**Implementation/Code:** The following is the code for smaceps()
 
-      subroutine smaceps(seps, ipow)
-    c
-    c set up storage for the algorithm
-    c --------------------------------
-    c
-          real seps, one, appone
-    c
-    c initialize variables to compute the machine value near 1.0
-    c ----------------------------------------------------------
-    c
-          one = 1.0
-          seps = 1.0
-          appone = one + seps
-    c
-    c loop, dividing by 2 each time to determine when the difference between one and
-    c the approximation is zero in single precision
-    c --------------------------------------------- 
-    c
-          ipow = 0
-          do 1 i=1,1000
-             ipow = ipow + 1
-    c
-    c update the perturbation and compute the approximation to one
-    c ------------------------------------------------------------
-    c
-            seps = seps / 2
-            appone = one + seps
-    c
-    c do the comparison and if small enough, break out of the loop and return
-    c control to the calling code
-    c ---------------------------
-    c
-            if(abs(appone-one) .eq. 0.0) return
-    c
-        1 continue
-    c
-    c if the code gets to this point, there is a bit of trouble
-    c ---------------------------------------------------------
-    c
-          print *,"The loop limit has been exceeded"
-    c
-    c done
-    c ----
-    c
-          return
-    end
+int main()
+{
+	std::cout << errorRel(1000, 1000.1) << std::endl;
 
-**Last Modified:** September/2017
+	return 0;
+}
+```
+**Last Modified:** January/2018
