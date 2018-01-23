@@ -1,5 +1,7 @@
 # Machine Epsilon
 
+[Math 5620 Software Manual](https://tannerwheeler.github.io/math5620/main)
+
 **Function Name:**           find_machine_epsilon<T>()
 
 **Author:** Tanner Wheeler
