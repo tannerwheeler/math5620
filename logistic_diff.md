@@ -75,12 +75,12 @@ double analytic_sol(double p_0, double alpha, double beta, double point_t)
 
 	if (alpha == 0 && beta == 0)
  	{
-    solution = p_0;
+    		solution = p_0;
 	}
-  else if (alpha == 0 && beta != 0)
-  {
-  	solution = 1 / ((beta * point_t) + (1 / p_0));
-  }
+  	else if (alpha == 0 && beta != 0)
+  	{
+  		solution = 1 / ((beta * point_t) + (1 / p_0));
+  	}
  	else if (alpha != 0 && beta == 0)
  	{
  		solution = (p_0 * exp(alpha * point_t));
