@@ -1,97 +1,48 @@
-# Math 4610 Fundamentals of Computational Mathematics Software Manual Template File
-This is a template file for building an entry in the student software manual project. You should use the formatting below to
-define an entry in your software manual.
+# Absolute Error
 
-**Routine Name:**           smaceps
+[Math 5620 Software Manual](https://tannerwheeler.github.io/math5620/main)
 
-**Author:** Joe Koebbe
+**Function Name:**           errorAbs(double ex, double exBar)
 
-**Language:** Fortran. The code can be compiled using the GNU Fortran compiler (gfortran).
+**Author:** Tanner Wheeler
 
-For example,
+**Language:** C++. The code can be compiled using the cMake compiler.
 
-    gfortran smaceps.f
+**Description/Purpose:** Calling errorAbs(double ex, double exBar) will calculate the absolute value of the difference between the calculated value and the actual value.
 
-will produce an executable **./a.exe** than can be executed. If you want a different name, the following will work a bit
-better
+**Input:** In order to find the absolute error you need to know x and x-bar.  These are the two input values for errorAbs(...).
 
-    gfortran -o smaceps smaceps.f
-
-**Description/Purpose:** This routine will compute the single precision value for the machine epsilon or the number of digits
-in the representation of real numbers in single precision. This is a routine for analyzing the behavior of any computer. This
-usually will need to be run one time for each computer.
-
-**Input:** There are no inputs needed in this case. Even though there are arguments supplied, the real purpose is to
-return values in those variables.
-
-**Output:** This routine returns a single precision value for the number of decimal digits that can be represented on the
-computer being queried.
+**Output:** This function will return a double value of the calculated absolute error.  The function does not print this value out.
 
 **Usage/Example:**
-
-The routine has two arguments needed to return the values of the precision in terms of the smallest number that can be
-represented. Since the code is written in terms of a Fortran subroutine, the values of the machine machine epsilon and
-the power of two that gives the machine epsilon. Due to implicit Fortran typing, the first argument is a single precision
-value and the second is an integer.
-
-      call smaceps(sval, ipow)
-      print *, ipow, sval
-
-Output from the lines above:
-
-      24   5.96046448E-08
-
-The first value (24) is the number of binary digits that define the machine epsilon and the second is related to the
-decimal version of the same value. The number of decimal digits that can be represented is roughly eight (E-08 on the
-end of the second value).
+If we were given the values of x = 2 and x-bar = 2.5 we would call the function as:
+```
+errorAbs(2, 2.5)
+```
+This will return the value 0.5 to the function call.
 
 **Implementation/Code:** The following is the code for smaceps()
 
-      subroutine smaceps(seps, ipow)
-    c
-    c set up storage for the algorithm
-    c --------------------------------
-    c
-          real seps, one, appone
-    c
-    c initialize variables to compute the machine value near 1.0
-    c ----------------------------------------------------------
-    c
-          one = 1.0
-          seps = 1.0
-          appone = one + seps
-    c
-    c loop, dividing by 2 each time to determine when the difference between one and
-    c the approximation is zero in single precision
-    c --------------------------------------------- 
-    c
-          ipow = 0
-          do 1 i=1,1000
-             ipow = ipow + 1
-    c
-    c update the perturbation and compute the approximation to one
-    c ------------------------------------------------------------
-    c
-            seps = seps / 2
-            appone = one + seps
-    c
-    c do the comparison and if small enough, break out of the loop and return
-    c control to the calling code
-    c ---------------------------
-    c
-            if(abs(appone-one) .eq. 0.0) return
-    c
-        1 continue
-    c
-    c if the code gets to this point, there is a bit of trouble
-    c ---------------------------------------------------------
-    c
-          print *,"The loop limit has been exceeded"
-    c
-    c done
-    c ----
-    c
-          return
-    end
+```
+double errorAbs(double ex, double exBar)
+{
+	double solution = 0.0f;
 
-**Last Modified:** September/2017
+	solution = ex - exBar;
+
+	if (solution < 0)
+	{
+		solution *= -1;
+	}
+
+	return solution;
+}
+
+int main()
+{
+	std::cout << errorAbs(2, 2.5) << std::endl;
+
+	return 0;
+}
+```
+**Last Modified:** January/2018
