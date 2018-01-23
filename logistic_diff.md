@@ -1,5 +1,7 @@
 # Logistic Differential Equation
 
+[Math 5620 Software Manual](https://tannerwheeler.github.io/math5620/main)
+
 **Function Name:**           analytic_sol(double p_0, double alpha, double beta, double point_t)
 
 **Author:** Tanner Wheeler
