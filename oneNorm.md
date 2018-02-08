@@ -21,7 +21,7 @@ You must include your two vectors and call the function.
 double norm = oneNorm(computed, exact);
 ```
 
-**Implementation/Code:** The following is the code for LUFactorization()
+**Implementation/Code:** The following is the code for oneNorm(std::vector<double> computed, std::vector<double> exact)
 ```
 double oneNorm(std::vector<double> computed, std::vector<double> exact)
 	{
