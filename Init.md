@@ -2,13 +2,13 @@
 
 [Math 5620 Software Manual](https://tannerwheeler.github.io/math5620/main)
 
-**Routine Name:** Init(
+**Routine Name:** Init(double a, double b, double u_a, double u_b, int nv)
 
 **Author:** Tanner Wheeler
 
 **Language:** C++. The code can be compiled using the cMake compiler.
 
-**Description/Purpose:**This class constructor will initialize the arrays of data that you need in order to solve the DE. 
+**Description/Purpose:** This class constructor will initialize the arrays of data that you need in order to solve the DE. 
 
 **Input:** You need to include a value for a, b, u_a, u_b, and n in 
 ```
