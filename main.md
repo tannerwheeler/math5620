@@ -27,4 +27,4 @@
 ### 6. Appendix
   - [1-Norm](https://tannerwheeler.github.io/math5620/oneNorm)
   - [2-Norm](https://tannerwheeler.github.io/math5620/twoNorm)
-  - [Infinity-Norm](https://tannerwheeler.github.io/math5620/inftyNorm)
+  - [Infinity-Norm](https://tannerwheeler.github.io/math5620/infty)
