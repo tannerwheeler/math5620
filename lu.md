@@ -1,4 +1,4 @@
-#LU Factorization
+# LU Factorization
 
 [Math 5620 Software Manual](https://tannerwheeler.github.io/math5620/main)
 
