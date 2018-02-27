@@ -24,7 +24,7 @@ This would then use the points (0, 0), (0, 1), (1, 0), (0, 2), (1, 1)... to init
 ```
 void initMesh5(double start, double end, int meshSize)
 {
-	double h = (end - start - 1) / static_cast<double>(meshSize);
+	double h = (end - start) / static_cast<double>(meshSize);
 
 	int size = meshSize * meshSize;
 
