@@ -28,3 +28,6 @@
   - [1-Norm](https://tannerwheeler.github.io/math5620/oneNorm)
   - [2-Norm](https://tannerwheeler.github.io/math5620/twoNorm)
   - [Infinity-Norm](https://tannerwheeler.github.io/math5620/infty)
+  
+### 7. Appendix B
+  - [Matrix Class](https://tannerwheeler.github.io/math5620/matrixClass)
