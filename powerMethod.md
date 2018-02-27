@@ -2,7 +2,7 @@
 
 [Math 5620 Software Manual](https://tannerwheeler.github.io/math5620/main)
 
-**Routine Name:** Matrix findEigenvalues(Matrix matrix)
+**Routine Name:** double findEigenvalues(Matrix matrix)
 
 **Author:** Tanner Wheeler
 
