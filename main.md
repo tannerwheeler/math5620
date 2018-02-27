@@ -7,12 +7,19 @@
   - [Logistic Differencial Equations](https://tannerwheeler.github.io/math5620/logistic_diff)
   - [Second Order, Linear, Constant Coefficient, DEQ](https://tannerwheeler.github.io/math5620/secondccoeff)
   - [Finite Difference Coefficients](https://tannerwheeler.github.io/math5620/coeffs)
+  - [Gaussian Elimination](https://tannerwheeler.github.io/math5620/gauss)
   
 ### 2. Elliptic Problems
   - [Thomas Algorithm](https://tannerwheeler.github.io/math5620/thomas)
   - [LU Factorization](https://tannerwheeler.github.io/math5620/lu)
   - [Jacobi Iteration](https://tannerwheeler.github.io/math5620/jacobi)
   - [Initializing an Elliptic DE](https://tannerwheeler.github.io/math5620/init)
+  - [Matrix One Norm](https://tannerwheeler.github.io/math5620/matrixOneNorm)
+  - [Matrix Infinity Norm](https://tannerwheeler.github.io/math5620/matrixInfNorm)
+  - [Power Method](https://tannerwheeler.github.io/math5620/powerMethod)
+  - [Inverse Power Method](https://tannerwheeler.github.io/math5620/invPowerMethod)
+  - [5 Point Stencil](https://tannerwheeler.github.io/math5620/5pointstencil)
+  - [9 Point Stencil](https://tannerwheeler.github.io/math5620/9pointStencil)
   
 ### 3. Routines for Parabolic Problems
   -
