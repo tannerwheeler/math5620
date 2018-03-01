@@ -24,17 +24,18 @@ This would then use the points (0, 0), (0, 1), (1, 0), (0, 2), (1, 1)... to init
 ```
 void initMesh5(double start, double end, int meshSize)
 {
-	double h = (end - start) / static_cast<double>(meshSize);
+	double h = (end - start) / static_cast<double>(meshSize + 1);
 
 	int size = meshSize * meshSize;
 
 	Matrix f(size, 1, false);
 
-	for (int i = 0; i < meshSize; i++)
+	for (int i = 1; i <= meshSize; i++)
 	{
-		for (int j = 0; j < meshSize; j++)
+		for (int j = 1; j <= meshSize; j++)
 		{
-			f.layout[(i * meshSize) + j][0] = h * h * std::sin((i * h)*(j * h));   // This is where you declare your function.
+			f.layout[((i-1) * meshSize) + (j-1)][0] = h * h * std::sin((start + (i * h))*(start + (j * h)));   
+			// This is where you declare your function.
 		}
 	}
 
