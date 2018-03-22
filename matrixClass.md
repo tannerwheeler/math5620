@@ -101,6 +101,21 @@ public:
 		}
 	}
 
+	// Creates the hilbert matrix
+	Matrix(int M, int N, int value) : M(M), N(N)
+	{
+		std::vector<std::vector<double>> test(M, std::vector<double>(N));
+		layout = test;
+
+		for (unsigned int i = 0; i < M; i++)
+		{
+			for (unsigned int j = 0; j < N; j++)
+			{
+				layout[i][j] = value;
+			}
+		}
+	}
+
 
 	// 5 point stencil matrix
 	Matrix(int mesh) : M(mesh * mesh), N(mesh * mesh)
@@ -310,7 +325,7 @@ public:
 						sum += static_cast<double>(this->layout[i][k]) * static_cast<double>(rhs.layout[k][j]);
 					}
 
-					matrix.layout[(double)i][(double)j] = sum;
+					matrix.layout[i][j] = (double)sum;  // Got rid of [(double)i][(double)j]
 				}
 			}
 
@@ -322,6 +337,24 @@ public:
 
 			return *this;
 		}
+	}
+
+
+	Matrix operator*(const double& rhs) 
+	{
+		Matrix matrix(this->M, this->N, false);
+
+		for (int i = 0; i < this->M; i++)
+		{
+			for (int j = 0; j < this->N; j++)
+			{
+				double mult = this->layout[i][j];
+				mult *= rhs;
+				matrix.layout[i][j] = mult;
+			}
+		}
+
+		return matrix;
 	}
 
 
@@ -368,7 +401,7 @@ public:
 			{
 				for (unsigned int j = 0; j < N; j++)
 				{
-					matrix.layout[i][j] = (this->layout[i][j] + rhs.layout[i][j]);
+					matrix.layout[i][j] = ((double)this->layout[i][j] + (double)rhs.layout[i][j]);
 				}
 			}
 
@@ -394,7 +427,7 @@ public:
 			{
 				for (unsigned int j = 0; j < N; j++)
 				{
-					matrix.layout[i][j] = (this->layout[i][j] - rhs.layout[i][j]);
+					matrix.layout[i][j] = ((double)this->layout[i][j] - (double)rhs.layout[i][j]);
 				}
 			}
 
@@ -476,6 +509,54 @@ public:
 		}
 	}
 	
+
+	float infiMatrixNorm()
+	{
+		double maxSum = 0.0f;
+		double sum = 0.0f;
+
+		for (unsigned int i = 0; i < M; i++)
+		{
+			for (unsigned int j = 0; j < N; j++)
+			{
+				sum += layout[i][j];
+			}
+
+			if (sum > maxSum)
+			{
+				maxSum = sum;
+			}
+			
+			sum = 0.0f;
+		}
+
+		return maxSum;
+	}
+
+
+	float oneMatrixNorm()
+	{
+		double maxSum = 0.0f;
+		double sum = 0.0f;
+
+		for (unsigned int j = 0; j < N; j++)
+		{
+			for (unsigned int i = 0; i < M; i++)
+			{
+				sum += layout[i][j];
+			}
+
+			if (sum > maxSum)
+			{
+				maxSum = sum;
+			}
+
+			sum = 0.0f;
+		}
+
+		return maxSum;
+	}
+
 };
 
 #endif
