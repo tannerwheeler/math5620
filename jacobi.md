@@ -8,9 +8,9 @@
 
 **Language:** C++. The code can be compiled using the cMake compiler.
 
-**Description/Purpose:** This function takes the given parameters as input and computes the analytic solutions of y(t) at any time t.
+**Description/Purpose:** This function takes the given parameters as input and computes the analytic solutions of y(t) at any time t.  This will continue to interate until the matrix converges.  If you want to set an iteration limit to the method it must be added.
 
-**Input:** You must pass into the function that is diagonally dominant. This can be created using the Matrix class in **Appendix B**.  You also need to pass in a matrix with the results (b in the equation Ax=b).
+**Input:** You must pass into the function a matrix that is diagonally dominant. This can be created using the Matrix class in **Appendix B**.  You also need to pass in a matrix with the results (b in the equation Ax=b).
 
 **Output:** This will return a matrix equal to the x in the Ax=b linear equation.
 
