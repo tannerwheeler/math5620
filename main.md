@@ -20,6 +20,9 @@
   - [Inverse Power Method](https://tannerwheeler.github.io/math5620/invPowerMethod)
   - [5 Point Stencil](https://tannerwheeler.github.io/math5620/5pointstencil)
   - [9 Point Stencil](https://tannerwheeler.github.io/math5620/9pointStencil)
+  - [Gauss-Seidel Method](https://tannerwheeler.github.io/math5620/gaussSeidel)
+  - [Conjugate Gradient Method](https://tannerwheeler.github.io/math5620/conjugateGradient)
+  - [Explicit Euler Method](https://tannerwheeler.github.io/math5620/explicitEuler)
   
 ### 3. Routines for Parabolic Problems
   -
@@ -38,3 +41,4 @@
   
 ### 7. Appendix B
   - [Matrix Class](https://tannerwheeler.github.io/math5620/matrixClass)
+  - [Split into L D U]()
