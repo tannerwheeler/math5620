@@ -41,4 +41,4 @@
   
 ### 7. Appendix B
   - [Matrix Class](https://tannerwheeler.github.io/math5620/matrixClass)
-  - [Split into L D U]()
+  - [Split into L D U](https://tannerwheeler.github.io/math5620/splitldu)
