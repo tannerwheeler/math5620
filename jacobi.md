@@ -10,7 +10,7 @@
 
 **Description/Purpose:** This function takes the given parameters as input and computes the analytic solutions of y(t) at any time t.
 
-**Input:** You must pass into the function that is diagonally dominant. This can be created using the Matrix class in **Appendix B**.  You also need to pass in a vector with the results (b in the equation Ax=b).
+**Input:** You must pass into the function that is diagonally dominant. This can be created using the Matrix class in **Appendix B**.  You also need to pass in a matrix with the results (b in the equation Ax=b).
 
 **Output:** This will return the a Matrix equal to the x in the Ax=b linear equation.
 
@@ -22,29 +22,32 @@ Matrix xValues = jacobi(matrix, b);
 
 **Implementation/Code:** The following is the code for 
 ```
-Matrix jacobi(Matrix m, std::vector<double> bValues)
+Matrix jacobi(Matrix matrix, Matrix b)
 {
-	Matrix l(m.getM(), m.getN(), false);
-	Matrix u(m.getM(), m.getN(), false);
+	Matrix l(m.getM(), m.getN(), 0);
+	Matrix u(m.getM(), m.getN(), 0);
+	//Matrix d(m.getM(), m.getN, false);
 
-	l.initLowDiagonal(1);
+	//std::vector<double> initd(m.getN(), -0.5);
 
-	u.initUpDiagonal(1);
+	Matrix d(m.getM(), m.getN(), 0);
 
-	std::vector<double> initd(m.getN(), -0.5);
+	splitULD(m, d, u, l);
 
-	Matrix d(m.getM(), m.getN(), false);
-	d.initDiagonal(-0.5)
+	d.initDiagonal(1 / m.layout[0][0]);
+	//d.print();
 
-	Matrix b(bValues);
+	Matrix b = bValues;
+	//b.print();
 
 	std::vector<double> initX(m.getN(), 0);
-	
+
+	//Matrix exOne(initX);
 	Matrix exNott(initX);
-	exNott.print();
+	//exNott.print();
 	Matrix exOne = exNott;
-  
-  int time = 0;
+
+	int num = 0;
 
 	do
 	{
@@ -53,16 +56,23 @@ Matrix jacobi(Matrix m, std::vector<double> bValues)
 	exOne = l;
 
 	exOne = exOne + u;
-	
+	//exOne.print();
+
 	exOne = exOne * exNott;
+	//exOne.print();
 
 	exOne = b - exOne;
+	//exOne.print();
 
 	exOne = d * exOne;
-  
-  time++;
+	//exOne.print();
 
-	} while (exOne != exNott && time < 500);
+	num++;
+
+	} while (exOne != exNott);
+	//exOne = d * (b - (l + u) * exNott);
+
+	std::cout << num << std::endl << std::endl;
 
 	return exOne;
 }
