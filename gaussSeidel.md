@@ -39,7 +39,7 @@ Matrix b = bValues;`
 
 This initialization will create the matrix `b` in `Ax=b`.  After calling `gSeidel(i1, b)` `gs` is equal to `x`.
 With `gs.print();` it prints the matrix `x` is equal to
-`
+```
 |  -0.8333  |
 |  -1.1667  |
 |  -1.1667  |
@@ -56,7 +56,7 @@ With `gs.print();` it prints the matrix `x` is equal to
 |  -1.1667  |
 |  -1.1667  |
 |  -0.8333  |
-`
+```
 
 **Implementation/Code:** The following is the code for 
 ```
