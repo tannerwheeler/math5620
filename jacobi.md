@@ -12,7 +12,7 @@
 
 **Input:** You must pass into the function that is diagonally dominant. This can be created using the Matrix class in **Appendix B**.  You also need to pass in a matrix with the results (b in the equation Ax=b).
 
-**Output:** This will return the a Matrix equal to the x in the Ax=b linear equation.
+**Output:** This will return a matrix equal to the x in the Ax=b linear equation.
 
 **Usage/Example:** This code is used by passing in your desired matrix and conditions.  It can be called as:
 ```
