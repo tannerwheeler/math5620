@@ -21,16 +21,15 @@ If you wanted to use a 5-point stencil, 4 by 4 matrix for A in `Ax = b`.  This i
 int main()
 {
 	int size = 4;
-	double tol = 0.00000000000000000000001;
 	Matrix i1(size);
 
 	std::vector<double> bValues(size * size, 1);
 	Matrix b = bValues;
 
 	Matrix gs = gSeidel(i1, b);
-  gs.print();
+	gs.print();
   
-  return 0;
+	return 0;
 }
 ```
 
