@@ -2,7 +2,7 @@
 
 [Math 5620 Software Manual](https://tannerwheeler.github.io/math5620/main)
 
-**Routine Name:** 
+**Routine Name:** void expEuler(Func f, double y0, double a, double b, double h)
 
 **Author:** Tanner Wheeler
 
