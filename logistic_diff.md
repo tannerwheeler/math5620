@@ -2,115 +2,48 @@
 
 [Math 5620 Software Manual](https://tannerwheeler.github.io/math5620/main)
 
-**Function Name:**           analytic_sol(double p_0, double alpha, double beta, double point_t)
+**Function Name:** double logistic(double alpha, double beta, double gamma, double t)
 
 **Author:** Tanner Wheeler
 
 **Language:** C++. The code can be compiled using the cMake compiler.
 
-**Description/Purpose:** This function will compute the value of P(t) from the function dP/dt = alpha*P - beta*P^2.
+**Description/Purpose:** This function will compute the value of `P(t)` from the function `dP/dt = gamma*P - beta*P^2`.
 
-**Input:** The values of alpha, beta, P_0 (P(t) when t = 0), and t.
+**Input:** You need to input the values for alpha(`P(0)`), gamma, beta, and the value `t`.
 
 **Output:** This calculates the value of P(t) given the expressed input.  This only will return a decimal value to the function call.
 
 **Usage/Example:**
-
-This function needs four parameters which are specified under _Input_ above.  Depending on the values of alpha and beta this algorithm with run through one of four different calculations.  Suppose we have alpha = 5, beta = 4, P_0 = 3, and t = 2.  The function call looks like:
+With an initial value alpha = 4, beta = 1, gamma = 2, and t = 5.
 ```
-analytic_sol(double p_0, double alpha, double beta, double point_t)
-```
-thus we would call the function with:
-```
-analytic_sol(3, 5, 4, 2);
-```
-This will return 
-```
-1.25003
-```
-where the function was called.  Thus with these parameters we know that P(t) = 1.25003.
-
-**Implementation/Code:** The following is the code for analytic_sol(double p_0, double alpha, double beta, double point_t)
-- The main() function can be ignored if only the analytic_sol(...) function is needed.  main() only contains commands to get values for the parameters.
-
-```
-#include <iostream>
-#include <cmath>
-
-
-double numerator(double p_0, double alpha, double beta, double point_t)
-{
-	double top = p_0 / (alpha - (beta * p_0));
-
- 	top *= alpha;
-
- 	top *= exp(alpha * point_t);
-
- 	return top;
-}
-
-double denominator(double p_0, double alpha, double beta, double point_t)
-{
- 	double bottom = p_0 / (alpha - (beta * p_0));
-
- 	bottom *= beta;
-
- 	bottom *= exp(alpha * point_t);
-
- 	return bottom + 1;
-}
-
-double analytic_sol(double p_0, double alpha, double beta, double point_t)
-{
- 	double solution = 0.0;
-
-	if (alpha == 0 && beta == 0)
- 	{
-    		solution = p_0;
-	}
-  	else if (alpha == 0 && beta != 0)
-  	{
-  		solution = 1 / ((beta * point_t) + (1 / p_0));
-  	}
- 	else if (alpha != 0 && beta == 0)
- 	{
- 		solution = (p_0 * exp(alpha * point_t));
- 	}
- 	else
- 	{
- 		solution = numerator(p_0, alpha, beta, point_t) / denominator(p_0, alpha, beta, point_t);
- 	}
-  
-  return solution;
-}
-
-
 int main()
 {
-	double p_0 = 0.0f;
-	double alpha = 0.0f;
-	double beta = 0.0f;
-	double point_t = 0.0f;
-
-	std::cout << "Alpha = ";
-	std::cin >> alpha;
-	std::cout << std::endl;
-
-	std::cout << "Beta = ";
-	std::cin >> beta;
-	std::cout << std::endl;
-
-	std::cout << "P_0 = ";
-	std::cin >> p_0;
-	std::cout << std::endl;
-
-	std::cout << "t = ";
-	std::cin >> point_t;
-	std::cout << std::endl;
-
-	std::cout << "P(" << point_t << ") = " << analytic_sol(p_0, alpha, beta, point_t) << std::endl;
-
+	double val = logistic(4, 1, 2, 5);
 	return 0;
+}
+```
+This will then return the value
+```
+val = 2.00005
+```
+
+**Implementation/Code:** logistic(double alpha, double beta, double gamma, double t)
+```
+double logistic(double alpha, double beta, double gamma, double t)
+{
+	if (beta == 0)
+	{
+		return foiv(alpha, gamma, t);
+	}
+	else if (gamma == 0)
+	{
+		return 1 / ((beta * t) + (1 / alpha));
+	}
+	else
+	{
+		return (alpha * gamma * exp(gamma * t)) / (gamma + (alpha * beta * (exp(gamma * t) - 1)));
+	}
 }
  ```
  
