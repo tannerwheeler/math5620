@@ -1,4 +1,4 @@
-# Runge Kutta 2 Method
+# Runge Kutta 2nd Order Method
 
 [Math 5620 Software Manual](https://tannerwheeler.github.io/math5620/main)
 
@@ -30,7 +30,7 @@ Suppose our interval is from 0 to 10, `y0 = 1`, and the number of spaces equals 
 ```
 int main()
 {
-  std::vector<double> answers0 = rk2(rk2, 0, 1, 10, 10);
+  std::vector<double> answers0 = rk2(rkf, 0, 1, 10, 10);
   return 0;
 }
 ```
