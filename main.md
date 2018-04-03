@@ -4,6 +4,7 @@
   - [Machine Epsilon](https://tannerwheeler.github.io/math5620/maceps)
   - [Absolute Error](https://tannerwheeler.github.io/math5620/errorAbs)
   - [Relative Error](https://tannerwheeler.github.io/math5620/errorRel)
+  - [First Order Initial Value Problem](https://tannerwheeler.github.io/math5620/foiv)
   - [Logistic Differencial Equations](https://tannerwheeler.github.io/math5620/logistic_diff)
   - [Second Order, Linear, Constant Coefficient, DEQ](https://tannerwheeler.github.io/math5620/secondccoeff)
   - [Finite Difference Coefficients](https://tannerwheeler.github.io/math5620/coeffs)
@@ -23,6 +24,11 @@
   - [Gauss-Seidel Method](https://tannerwheeler.github.io/math5620/gaussSeidel)
   - [Conjugate Gradient Method](https://tannerwheeler.github.io/math5620/conjugateGradient)
   - [Explicit Euler Method](https://tannerwheeler.github.io/math5620/explicitEuler)
+  - [Explicit Euler Method Mulitiple Output](https://tannerwheeler.github.io/math5620/explicitEulerV)
+  - [Implicit Euler Method](https://tannerwheeler.github.io/math5620/impEuler)
+  - [Runge Kutta 2nd Order Method](https://tannerwheeler.github.io/math5620/rk2)
+  - [Runge Kutta 4th Order Method](https://tannerwheeler.github.io/math5620/rk4)
+  - [Predictor Correcting Method](https://tannerwheeler.github.io/math5620/preCor)
   
 ### 3. Routines for Parabolic Problems
   -
