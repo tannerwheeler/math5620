@@ -10,7 +10,7 @@
 
 **Description/Purpose:** This will perform an iteration either 750 times or until the results matrix hasn't changed since the last iteration.  The number of times the matrix iterates can be changed.
 
-**Input:** You must enter a nxn matrix from the Matrix class in **Appendix B**.  This method also uses the Matrix class during the computation.
+**Input:** You must enter a nxn matrix from the Matrix class in **Appendix B** (All operations of a matrix can be used with this class).  This method also uses the Matrix class during the computation.
 
 **Output:** This will return the largest eigenvalue of the Matrix which can be used for the Matrix 2 Norm.
 
@@ -28,6 +28,8 @@ double findEigenvalues(Matrix matrix)
 	std::vector<double> initStart(matrix.getN(), 1);
 	std::vector<double> initEnd(matrix.getN(), 0);
 
+	// Turn the vectors into matrix structure using the Matrix class.
+	// This allows the use of all matrix operations needed.
 	Matrix xStart(initStart);
 	Matrix xEnd(initEnd);
 
@@ -36,8 +38,8 @@ double findEigenvalues(Matrix matrix)
 
 	while (!end && times < 750)  // Change iterations here
 	{
-		xEnd = (matrix * xStart);// / (xStart.transpose() * xStart);
-		xEnd = xEnd / xEnd.layout[matrix.M - 1][0];
+		xEnd = (matrix * xStart);
+		xEnd = xEnd / xEnd.layout[matrix.M - 1][0]; // This will normalize the matrix vector.
 
 		if (xEnd == xStart)
 		{
@@ -53,6 +55,8 @@ double findEigenvalues(Matrix matrix)
 		times = times + 1;
 	}
 
+	// Use old matrix xStart instead of implementing a new matrix vector.
+	// These three lines are the computation (A * x * x)/(x * x)
 	xStart = matrix * xEnd;
 	xStart = xStart.transpose() * xEnd;
 	xStart = xStart / (xEnd.transpose() * xEnd);
