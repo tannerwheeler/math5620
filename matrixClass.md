@@ -85,7 +85,9 @@ public:
 		}
 	}
 
+	//
 	// Creates the hilbert matrix
+	//
 	Matrix() : M(5), N(5)
 	{
 		std::vector<std::vector<double>> test(M, std::vector<double>(N));
@@ -101,7 +103,9 @@ public:
 		}
 	}
 
-	// Creates the hilbert matrix
+	//
+	// Creates a matrix where every value equals the value parameter.
+	//
 	Matrix(int M, int N, int value) : M(M), N(N)
 	{
 		std::vector<std::vector<double>> test(M, std::vector<double>(N));
@@ -116,8 +120,9 @@ public:
 		}
 	}
 
-
-	// 5 point stencil matrix
+	//
+	// Creates the 5 point stencil matrix
+	//
 	Matrix(int mesh) : M(mesh * mesh), N(mesh * mesh)
 	{
 		std::vector<std::vector<double>> test(M, std::vector<double>(N));
@@ -154,8 +159,9 @@ public:
 
 	}
 
-
-	// 9 point stencil matrix
+	//
+	// Creates a 9 point stencil matrix
+	//
 	Matrix(int mesh, bool point_9) : M(mesh * mesh), N(mesh * mesh)
 	{
 		std::vector<std::vector<double>> test(M, std::vector<double>(N));
@@ -212,9 +218,10 @@ public:
 	}
 
 
-	
-	//Creates a matrix with the -2 down the diagonal and 1 on the diagonals
-	//above and below it.
+	//
+	// Creates a matrix with the -2 down the diagonal and 1 on the diagonals
+	// above and below it.
+	//
 	Matrix(int M, int N) : M(M), N(N)
 	{
 		std::vector<std::vector<double>> test(M, std::vector<double>(N));
@@ -309,6 +316,9 @@ public:
 		}
 	}
 
+	//
+	// This performs the multiplication of two matrix class objects
+	//
 	Matrix operator*(const Matrix& rhs)
 	{
 		if (this->N == rhs.M)
@@ -339,7 +349,10 @@ public:
 		}
 	}
 
-
+	//
+	// This performs multiplication of a matrix and a scalar.
+	// Needs to be used as (if A was a matrix object) A * 9.
+	//
 	Matrix operator*(const double& rhs) 
 	{
 		Matrix matrix(this->M, this->N, false);
@@ -358,7 +371,10 @@ public:
 	}
 
 
-
+	//
+	// This performs division of a matrix and a scalar.
+	// Needs to be used as (if A was a matrix object) A / 9 = A * (1/9).
+	//
 	Matrix operator/(const double& rhs)
 	{
 		for (unsigned int i = 0; i < this->M; i++)
@@ -373,7 +389,10 @@ public:
 	}
 
 
-
+	//
+	// This performs division of a matrix and a scalar(magnitude of a 1x1 
+	// Matrix.  Acts as though you were to multiply by 1 over the intended number.
+	//
 	Matrix operator/(const Matrix& rhs)
 	{
 		if(rhs.M == 1 && rhs.N == 1)
@@ -390,7 +409,9 @@ public:
 
 
 
-
+	//
+	// This adds two matrix objects together.
+	//
 	Matrix operator+(const Matrix& rhs)
 	{
 		if (this->M == rhs.M && this->N == rhs.N)
@@ -416,7 +437,9 @@ public:
 	}
 
 	
-
+	//
+	// This subtracts to matrix objects from each other.
+	//
 	Matrix operator-(const Matrix& rhs)
 	{
 		if (this->M == rhs.M && this->N == rhs.N)
@@ -442,7 +465,9 @@ public:
 	}
 
 	
-
+	//
+	// This returns the transpose of this matrix object.
+	//
 	Matrix transpose()
 	{
 		Matrix newMatrix(N, M, false);
@@ -459,7 +484,10 @@ public:
 	}
 
 
-
+	//
+	// This compares two matrix objects together to see if they are 
+	// not equal to each other.
+	//
 	bool operator!=(const Matrix& rhs)
 	{
 		if (this->M == rhs.M && this->N == rhs.N)
@@ -485,7 +513,10 @@ public:
 
 
 
-
+	//
+	// This compares two matrix objects together to see if they are
+	// equal to each other.
+	//
 	bool operator==(const Matrix& rhs)
 	{
 		if (this->M == rhs.M && this->N == rhs.N)
@@ -509,7 +540,10 @@ public:
 		}
 	}
 	
-
+	//
+	// This finds the Infinity Matrix Norm of this matrix
+	// object.
+	//
 	float infiMatrixNorm()
 	{
 		double maxSum = 0.0f;
@@ -533,7 +567,10 @@ public:
 		return maxSum;
 	}
 
-
+	//
+	// This finds the One Matrix Norm of this matrix
+	// object.
+	//
 	float oneMatrixNorm()
 	{
 		double maxSum = 0.0f;
