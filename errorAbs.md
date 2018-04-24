@@ -17,9 +17,17 @@
 **Usage/Example:**
 If we were given the values of x = 2 and x-bar = 2.5 we would call the function as:
 ```
-errorAbs(2, 2.5)
+int(main)
+{
+	std::cout << errorAbs(2, 2.5) << std::endl;
+	return 0;
+}
 ```
-This will return the value 0.5 to the function call.
+This would print to the screen:
+```
+0.5
+```
+
 
 **Implementation/Code:** The following is the code for smaceps()
 
@@ -30,6 +38,7 @@ double errorAbs(double ex, double exBar)
 
 	solution = ex - exBar;
 
+	// This finds the absolute value of the error
 	if (solution < 0)
 	{
 		solution *= -1;
