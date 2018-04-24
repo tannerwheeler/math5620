@@ -27,11 +27,11 @@ double fun(double t, double y)
 ```
 This is the function `du/dt = u(t)`.
 
-Suppose our interval is from 0 to 10, `y0 = 1`, and the number of spaces equals 10.
+Suppose our interval is from 0 to 10, `y0 = 1`, and time steps of `0.1`.
 ```
 int main()
 {
-	std::vector<double> answers1 = impEuler(rkf, drkf, 0, 1, 10, size);
+	std::vector<double> answers1 = impEuler(rkf, drkf, 0, 1, 10, 0.1);
 	return 0;
 }
 ```
