@@ -10,7 +10,7 @@
 
 **Description/Purpose:** This method is the Runge Kutta 4th order iterative method.  This will iteratively find values of the solution with 5 steps.  First it will estimate a value for `k1`, then `k2` using `k1`, then `k3` using `k2`, and finally `k4` using `k3`.  Once all of these values have been found `U1` will be solved for using `k1`, `k2`, `k3`, and `k4`.  This will iteratively use the previous solutions for each preceeding solution.
 
-**Input:** A function must be defined and implemented to be passed into this method.  An interval start `x0` and end `x1` must be passed into the function.  The function also needs an initial value for the solution `y0` and the number of steps taken in the interval `n`.
+**Input:** A function must be defined and implemented to be passed into this method.  An interval start `x0` and end `x1` must be passed into the function.  The function also needs an initial value for the solution `y0` and the change in t as the parameter `n`.
 
 **Output:** This method will return a vector of all the `U1` solutions approximated during the iterations.  These will be the values of each step of the solution.  They will be in the order found.
 
@@ -26,11 +26,11 @@ double rkf(double t, double y)
 ```
 This is the function `du/dt = u(t)`.
 
-Suppose our interval is from 0 to 10, `y0 = 1`, and the number of spaces equals 10.
+Suppose our interval is from 0 to 10, `y0 = 1`, and the time step equal to 1.
 ```
 int main()
 {
-  std::vector<double> answers0 = rk4(rkf, 0, 1, 10, 10);
+  std::vector<double> answers0 = rk4(rkf, 0, 1, 10, 1);
   return 0;
 }
 ```
