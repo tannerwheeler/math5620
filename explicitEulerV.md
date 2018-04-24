@@ -56,9 +56,9 @@ With this vector the user can then code a way to print out all of the values in 
 std::vector<double> expEulerV(Func f, double a, double y0, double b, double dt)
 {
 	std::vector<double> solutions;
-	solutions.push_back(y0);
+	solutions.push_back(y0); // Adds initial value to solution vector.
 
-	double h = (b - a) / dt;
+	double h = dt;
 
 	while (a <= b)
 	{
