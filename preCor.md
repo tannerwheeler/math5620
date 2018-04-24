@@ -11,7 +11,7 @@ std::vector<double> predCorMethod(Func f, double x0, double y0, double x1, doubl
 
 **Description/Purpose:** This function uses to methods to estimate the value of the solutions.  It starts with the Adams-Bashforth 4th order method that predicts the first three values given an initial value.  This value is then corrected by the Adams-Moulton 3rd order method.
 
-**Input:** A function must be defined and implemented to be passed into this method.  An interval start `x0` and end `x1` must be passed into the function.  The function also needs an initial value for the solution `y0` and the number of steps taken in the interval `n`.
+**Input:** A function must be defined and implemented to be passed into this method.  An interval start `x0` and end `x1` must be passed into the function.  The function also needs an initial value for the solution `y0` and the change in step taken in the t values `n`.
 
 **Output:** This method will return a vector of all the `U1` solutions approximated during the iterations.  These will be the values of each step of the solution.  They will be in the order found.
 
@@ -27,11 +27,11 @@ double rkf(double t, double y)
 ```
 This is the function `du/dt = u(t)`.
 
-Suppose our interval is from 0 to 10, `y0 = 1`, and the number of spaces equals 10.
+Suppose our interval is from 0 to 10, `y0 = 1`, and time steps of 1.
 ```
 int main()
 {
-  std::vector<double> answers0 = preCorMethod(rkf, 0, 1, 10, 10);
+  std::vector<double> answers0 = preCorMethod(rkf, 0, 1, 10, 1);
   return 0;
 }
 ```
@@ -55,7 +55,7 @@ With this vector the user can then code a way to print out all of the values in 
 std::vector<double> predCorMethod(Func f, double x0, double y0, double x1, double n)
 {
 	std::vector<double> solutions;
-	double h = (x1 - x0) / n;
+	double h = n;
 	double U0 = y0;
 	solutions.push_back(y0);
 	x0 += h;
