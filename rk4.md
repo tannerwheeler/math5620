@@ -55,7 +55,7 @@ std::vector<double> rk4(Func f, double x0, double y0, double x1, double n)
 {
 	std::vector<double> solutions;
 	solutions.push_back(y0);
-	double h = (x1 - x0) / n;
+	double h = n;
 	double k1;
 	double k2;
 	double k3;
