@@ -10,7 +10,7 @@
 
 **Description/Purpose:** This is the Explicit Euler Method to determine the solution to a differential equation.
 
-**Input:** This method needs to have a function implemented and defined passed into it.  The then take `a` the start of the interval, `y0` the value of the function when `t = 0`, `b` the end of the interval, and `dt` which is the number of changes in `t`.
+**Input:** This method needs to have a function implemented and defined passed into it.  The then take `a` the start of the interval, `y0` the value of the function when `t = 0`, `b` the end of the interval, and `dt` which is the change in `t`.
 
 **Output:** This will return a vector of double type values.  The size of the vector will depend on the length of the interval and the change of value size.
 
@@ -30,7 +30,7 @@ Suppose our interval is from 0 to 10, `y0 = 1`, and the number of spaces equals 
 ```
 int main()
 {
-  std::vector<double> answers0 = expEulerV(fun, 0, 1, 10, 10);
+  std::vector<double> answers0 = expEulerV(fun, 0, 1, 10, 1);
   return 0;
 }
 ```
