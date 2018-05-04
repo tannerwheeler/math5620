@@ -8,7 +8,7 @@
 
 **Language:** C++. The code can be compiled using the cMake compiler.
 
-**Description/Purpose:** Unlike the Implicit Euler method for ODE's this will solve the Partial Differential Equation with time steps.  This can be used on equations like the heat equation.  It will use the jacobit method as its linear solver.
+**Description/Purpose:** Unlike the Implicit Euler method for ODE's this will solve the Partial Differential Equation with time steps.  This can be used on equations like the heat equation.  It will use the jacobi method as its linear solver.  This uses the Matrix class documented in Appendix B.
 
 **Input:** Alpha is the `a` from your PDE `u_t = a * u_xx`.  The x value range is `a` to `b`.  The initial value is u0.  For `u(x,t)`, `x0` is `u(x,a)` and `xn` is `u(x,b)`.  The change is time is `dt`.  The change in x is `dx`.  These are the parameters for the method.  They need to be entered in that order.
 
