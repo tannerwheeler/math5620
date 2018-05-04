@@ -25,6 +25,7 @@ This will then print out
 ```
 |      100    71.99    49.66    35.49    28.34       25  |
 ```
+In order for this method to converge `alpha * dt/dx^2 < 1/2`.
 
 **Implementation/Code:** The following is the code for explicitPDE(double alpha, double a, double b, double u0, double x0, double xn, double dt, double dx)
 ```
