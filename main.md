@@ -31,10 +31,13 @@
   - [Predictor Correcting Method](https://tannerwheeler.github.io/math5620/preCor)
   
 ### 3. Routines for Parabolic Problems
-  -
+  - [Explicit Euler PDE](https://tannerwheeler.github.io/math5620/pdeExp)
+  - [Implicit Euler PDE](https://tannerwheeler.github.io/math5620/pdeImplicit)
   
 ### 4. Routines for Hyperbolic Problems
-  -
+  - [Upwinding](https://tannerwheeler.github.io/math5620/upwinding)
+  - [Lax-Wendroff](https://tannerwheeler.github.io/math5620/laxWend)
+  - [Warming and Beam](https://tannerwheeler.github.io/math5620/warmBeam)
   
 ### 5. Test Problems
   - [HW2 Prob.7](https://tannerwheeler.github.io/math5620/hw2prob7)
